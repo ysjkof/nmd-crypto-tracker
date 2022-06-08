@@ -966,7 +966,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   width: 35px;
   height: 35px;
   margin-right: 10px;
-`;function yb({isDark:e,toggleDark:n}){const{isLoading:a,data:o}=Kr("allCoins",X0);return ve(db,{children:[le(Or,{children:le("title",{children:"\uCF54\uC778"})}),le(Sg,{onClick:n,isDark:e}),le(fb,{children:le(mb,{children:"\uCF54\uC778"})}),a?le(xb,{children:"Loading..."}):le(pb,{children:o==null?void 0:o.slice(0,100).map(h=>le(gb,{children:ve($a,{to:{pathname:`/${h.id}`},state:{name:h.name},children:[le(vb,{src:`https://coinicons-api.vercel.app/api/icon/${h.symbol.toLowerCase()}`}),h.name," \u2192"]})},h.id))})]})}const bb=dt.ul`
+`;function yb({isDark:e,toggleDark:n}){const{isLoading:a,data:o}=Kr("allCoins",X0);return ve(db,{children:[le(Or,{children:le("title",{children:"\uCF54\uC778"})}),le(Sg,{onClick:n,isDark:e}),le(fb,{children:le(mb,{children:"\uCF54\uC778"})}),a?le(xb,{children:"Loading.."}):le(pb,{children:o==null?void 0:o.slice(0,100).map(h=>le(gb,{children:ve($a,{to:{pathname:`/${h.id}`},state:{name:h.name},children:[le(vb,{src:`https://coinicons-api.vercel.app/api/icon/${h.symbol.toLowerCase()}`}),h.name," \u2192"]})},h.id))})]})}const bb=dt.ul`
   background-color: ${e=>e.theme.cardBgColor};
   border-radius: 10px;
   padding: 10px 20px;
