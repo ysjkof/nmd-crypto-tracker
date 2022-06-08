@@ -16,7 +16,7 @@ function Router({ isDark, toggleDark }: RoutersProps) {
         <Route
           // 이하 환경변수는 vite.config.ts에 base와 연결된듯함
           // path={`${import.meta.env.BASE_URL}`}
-          path={`${BASE_URL}/`}
+          path={`${BASE_URL}`}
           element={<Coins isDark={isDark} toggleDark={toggleDark} />}
         />
         <Route
