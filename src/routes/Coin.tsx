@@ -10,7 +10,7 @@ import {
 import styled from "styled-components";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import DarkModeBtn from "../components/DarkModeBtn";
-import { RoutersProps } from "../Routers";
+import { BASE_URL, RoutersProps } from "../Routers";
 
 const Title = styled.h1`
   font-size: 48px;
@@ -163,6 +163,7 @@ function Coin({ isDark, toggleDark }: RoutersProps) {
   const { coinId } = useParams<keyof RouteParams>() as RouteParams;
   const location = useLocation();
   const state = location.state as RouteState;
+
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
@@ -188,7 +189,7 @@ function Coin({ isDark, toggleDark }: RoutersProps) {
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
         <button>
-          <Link to={{ pathname: "/" }}>
+          <Link to={{ pathname: `${BASE_URL}/` }}>
             <span>뒤로가기</span>
           </Link>
         </button>
@@ -224,10 +225,10 @@ function Coin({ isDark, toggleDark }: RoutersProps) {
           </Overview>
           <Tabs>
             <Tab isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
+              <Link to={`${BASE_URL}${coinId}/chart`}>Chart</Link>
             </Tab>
             <Tab isActive={priceMatch !== null}>
-              <Link to={`/${coinId}/price`}>Price</Link>
+              <Link to={`${BASE_URL}${coinId}/price`}>Price</Link>
             </Tab>
           </Tabs>
           <Outlet context={{ coinId, isDark }} />

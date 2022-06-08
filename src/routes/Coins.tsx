@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
 import DarkModeBtn from "../components/DarkModeBtn";
-import { RoutersProps } from "../Routers";
+import { BASE_URL, RoutersProps } from "../Routers";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -61,6 +61,7 @@ interface ICoin {
 }
 function Coins({ isDark, toggleDark }: RoutersProps) {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
+
   return (
     <Container>
       <Helmet>
@@ -71,13 +72,14 @@ function Coins({ isDark, toggleDark }: RoutersProps) {
         <Title>코인</Title>
       </Header>
       {isLoading ? (
-        <Loader>Loading...</Loader>
+        <Loader>Loading..</Loader>
       ) : (
         <CoinsList>
           {data?.slice(0, 100).map((coin) => (
             <Coin key={coin.id}>
               <Link
-                to={{ pathname: `/${coin.id}` }}
+                to={{ pathname: `${BASE_URL}${coin.id}` }}
+                // to={{ pathname: `/${coin.id}` }}
                 state={{ name: coin.name }}
               >
                 <Img
